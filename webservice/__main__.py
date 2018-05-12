@@ -13,7 +13,7 @@ router = routing.Router()
 async def issue_opened_event(event, gh, *args, **kwargs):
     """ Whenever an issue is opened, greet the author and say thanks."""
     url = event.data['issue']['comments_url']
-    user = event.date['issue']['user']['login']
+    user = event.data['issue']['user']['login']
     message = f'Thanks for opening the issue, @{user}, will look into it (I am a bot.)'
     await gh.post(url, data={'body': message})
 
